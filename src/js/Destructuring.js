@@ -1,9 +1,12 @@
 export default function destructuring(character) {
-  const { special } = character;
-  for (let atack of special) {
-    if (!atack.description) {
-      atack.description = 'Описание недоступно'
-  return special
+  const { special: params } = character;
+  const special = [];
+  for (let atack of params) {
+    const {
+      description = 'Описание недоступно',
+    } = atack;
+      atack.description = description;
+      special.push(atack);
     }
-  }
+  return special
 }
